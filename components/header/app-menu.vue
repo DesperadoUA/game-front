@@ -122,6 +122,7 @@
             @media (min-width: 992px) {
                 margin-left: 32px;
             }
+
         }
     }
 }
