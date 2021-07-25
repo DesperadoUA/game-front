@@ -30,6 +30,7 @@
     --theme-cr-2: #281c4c;
     --theme-cr-3: #1f4fad;
     --theme-cr-4: #FF7272;
+    --theme-cr-5: #999999;
     --faq-cr: #0b0038b3;
     --theme-cr-txt: var(--theme-cr-2);
     --theme-cr-txt-alt: #fff;
@@ -60,6 +61,9 @@
     /* Theme images */
 
     --transition-default: .27s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    --star_full: url(/img/stars_rate_1.png);
+    --star_empty: url(/img/stars_rate_2.png);
 }
 
 * {

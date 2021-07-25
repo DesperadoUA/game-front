@@ -38,7 +38,7 @@ export default {
                h1: 'GAMEBOY / GB ROMS',
                posts: [
                    {
-                       permalink: '/roms/playstation',
+                       permalink: '/roms/playstation/1',
                        thumbnail: 'http://localhost:3000/img/games.png',
                        title: 'Playstation',
                        rating: '4.7/5',
@@ -46,7 +46,7 @@ export default {
                        totalSize: '7.9 mb'
                    },
                    {
-                       permalink: '/roms/playstation-2',
+                       permalink: '/roms/playstation-2/1',
                        thumbnail: 'http://localhost:3000/img/games.png',
                        title: 'Playstation 2',
                        rating: '4.7/5',
@@ -54,7 +54,7 @@ export default {
                        totalSize: '7.9 mb'
                    },
                    {
-                       permalink: '/roms/playstation-3',
+                       permalink: '/roms/playstation-3/1',
                        thumbnail: 'http://localhost:3000/img/games.png',
                        title: 'Playstation 3',
                        rating: '4.7/5',
