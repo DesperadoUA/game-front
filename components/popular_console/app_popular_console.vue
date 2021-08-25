@@ -3,37 +3,12 @@
         <div class="container">
             <div class="popular_console_wrapper_title">
                 <div class="popular_console_ttl">Popular Console</div>
-                <nuxt-link to="/console" class="popular_console_link">VIEW All</nuxt-link>
+                <nuxt-link to="/rome" class="popular_console_link">VIEW All</nuxt-link>
             </div>
             <div class="populer_console_wrapper">
-                <div class="popular_console_item">
-                    <nuxt-link to="#">
-                        <img src="http://localhost:3000/img/console.png" class="popular_console_item_img" />
-                    </nuxt-link>
-                </div>
-                <div class="popular_console_item">
-                    <nuxt-link to="#">
-                        <img src="http://localhost:3000/img/console.png" class="popular_console_item_img" />
-                    </nuxt-link>
-                </div>
-                <div class="popular_console_item">
-                    <nuxt-link to="#">
-                        <img src="http://localhost:3000/img/console.png" class="popular_console_item_img" />
-                    </nuxt-link>
-                </div>
-                <div class="popular_console_item">
-                    <nuxt-link to="#">
-                        <img src="http://localhost:3000/img/console.png" class="popular_console_item_img" />
-                    </nuxt-link>
-                </div>
-                <div class="popular_console_item">
-                    <nuxt-link to="#">
-                        <img src="http://localhost:3000/img/console.png" class="popular_console_item_img" />
-                    </nuxt-link>
-                </div>
-                <div class="popular_console_item">
-                    <nuxt-link to="#">
-                        <img src="http://localhost:3000/img/console.png" class="popular_console_item_img" />
+                <div class="popular_console_item" v-for="(item, index) in value" :key="index">
+                    <nuxt-link :to="item.permalink">
+                        <img :src="item.thumbnail" class="popular_console_item_img" />
                     </nuxt-link>
                 </div>
             </div>
@@ -43,6 +18,7 @@
 <script>
     export default {
         name: "app_popular_console",
+        props: ['value'],
         data(){
             return {
                 posts: []

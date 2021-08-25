@@ -4,7 +4,8 @@ import config from './config'
 export default class JsonRequest {
     #options = {
         URL_API: config.API_URL,
-        POST_TYPE: 'casino',
+        POST_TYPE: 'rome',
+        CATEGORY: '',
         URL: '',
         IS_SEARCH: false,
         SEARCH_WORD: ''
@@ -21,6 +22,10 @@ export default class JsonRequest {
         this.#options.SEARCH_WORD = word
         return this
     }
+    setCategory(category) {
+        this.#options.CATEGORY = category
+        return this
+    }
     url(data){
         this.#options.URL = data
         return this
@@ -33,8 +38,15 @@ export default class JsonRequest {
                         search_word: this.#options.SEARCH_WORD
                     }
                 })
-        } else {
+        } 
+        else if(this.#options.POST_TYPE === 'pages') {
             return axios.get(this.#options.URL_API + this.#options.POST_TYPE+'/' + this.#options.URL)
+        }
+        else if(this.#options.CATEGORY !== '') {
+            return axios.get(this.#options.URL_API + this.#options.CATEGORY+'/' + this.#options.URL)
+        }
+        else {
+            return axios.get(this.#options.URL_API + this.#options.POST_TYPE+'/' + this.#options.CATEGORY + '/' + this.#options.URL)
         }
     }
 }

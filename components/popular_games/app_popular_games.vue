@@ -6,84 +6,14 @@
                 <nuxt-link to="/games" class="popular_games_link">VIEW All</nuxt-link>
             </div>
             <div class="populer_console_wrapper">
-                <div class="popular_games_item">
+                <div class="popular_games_item" v-for="(item, index) in value" :key="index">
                     <div class="popular_games_img">
-                        <nuxt-link to="#">
-                            <img src="http://localhost:3000/img/games.png" class="popular_games_item_img" />
+                        <nuxt-link :to="item.permalink">
+                            <img :src="item.thumbnail" class="popular_games_item_img" />
                         </nuxt-link>
                     </div>
-                    <nuxt-link to="#" class="popular_games_item_ttl">
-                        Pokemon - Fire Red Version (V1.1)
-                    </nuxt-link>
-                </div>
-                <div class="popular_games_item">
-                   <div class="popular_games_img">
-                        <nuxt-link to="#">
-                            <img src="http://localhost:3000/img/games.png" class="popular_games_item_img" />
-                        </nuxt-link>
-                    </div>
-                    <nuxt-link to="#" class="popular_games_item_ttl">
-                        Pokemon - Fire Red Version (V1.1)
-                    </nuxt-link>
-                </div>
-                <div class="popular_games_item">
-                   <div class="popular_games_img">
-                        <nuxt-link to="#">
-                            <img src="http://localhost:3000/img/games.png" class="popular_games_item_img" />
-                        </nuxt-link>
-                    </div>
-                    <nuxt-link to="#" class="popular_games_item_ttl">
-                        Pokemon - Fire Red Version (V1.1)
-                    </nuxt-link>
-                </div>
-                <div class="popular_games_item">
-                    <div class="popular_games_img">
-                        <nuxt-link to="#">
-                            <img src="http://localhost:3000/img/games.png" class="popular_games_item_img" />
-                        </nuxt-link>
-                    </div>
-                    <nuxt-link to="#" class="popular_games_item_ttl">
-                        Pokemon - Fire Red Version (V1.1)
-                    </nuxt-link>
-                </div>
-                <div class="popular_games_item">
-                   <div class="popular_games_img">
-                        <nuxt-link to="#">
-                            <img src="http://localhost:3000/img/games.png" class="popular_games_item_img" />
-                        </nuxt-link>
-                    </div>
-                    <nuxt-link to="#" class="popular_games_item_ttl">
-                        Pokemon - Fire Red Version (V1.1)
-                    </nuxt-link>
-                </div>
-                <div class="popular_games_item">
-                   <div class="popular_games_img">
-                        <nuxt-link to="#">
-                            <img src="http://localhost:3000/img/games.png" class="popular_games_item_img" />
-                        </nuxt-link>
-                    </div>
-                    <nuxt-link to="#" class="popular_games_item_ttl">
-                        Pokemon - Fire Red Version (V1.1)
-                    </nuxt-link>
-                </div>
-                <div class="popular_games_item">
-                   <div class="popular_games_img">
-                        <nuxt-link to="#">
-                            <img src="http://localhost:3000/img/games.png" class="popular_games_item_img" />
-                        </nuxt-link>
-                    </div>
-                    <nuxt-link to="#" class="popular_games_item_ttl">
-                        Pokemon - Fire Red Version (V1.1)
-                    </nuxt-link>
-                </div>
-                <div class="popular_games_item">
-                    <div class="popular_games_img">
-                        <nuxt-link to="#">
-                            <img src="http://localhost:3000/img/games.png" class="popular_games_item_img" />
-                        </nuxt-link>
-                    </div>
-                    <nuxt-link to="#" class="popular_games_item_ttl">
-                        Pokemon - Fire Red Version (V1.1)
+                    <nuxt-link :to="item.permalink" class="popular_games_item_ttl">
+                        {{item.title}}
                     </nuxt-link>
                 </div>
             </div>
@@ -93,6 +23,7 @@
 <script>
     export default {
         name: "app_popular_games",
+        props: ['value'],
         data(){
             return {
                 posts: []

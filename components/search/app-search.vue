@@ -2,8 +2,8 @@
    <div class="search">
        <div class="search-box">
            <div class="container search-box__container">
-               <h1 class="search-box__ttl">Roms Games Free Download</h1>
-               <p class="search-box__sub-ttl">for Android, PC, Mac or iPhone</p>
+               <h1 class="search-box__ttl">{{title}}</h1>
+               <p class="search-box__sub-ttl">{{description}}</p>
                <div class="form-search">
                    <input class="form-search__field"
                           type="search"
@@ -30,6 +30,7 @@
     import DAL_Builder from '~/DAL/builder'
     export default {
         name: "app-search",
+        props: ['title', 'description'],
         data(){
             return {
                 posts: [],

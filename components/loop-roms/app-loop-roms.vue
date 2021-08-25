@@ -11,7 +11,7 @@
             <span class="loop_roms_column">
                 <span>
                     <span class="loop_roms_ttl">Total roms:</span><br>
-                    {{item.totalRoms}}
+                    {{item.posts_count}}
                 </span>
             </span>
             <span class="loop_roms_column">

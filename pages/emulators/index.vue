@@ -12,7 +12,7 @@
    import app_category_h1 from '~/components/category_h1/app-category_h1'
    import app_loop_roms from '~/components/loop-roms/app-loop-roms'
 export default {
-    name: "roms",
+    name: "emulators",
     data: () => {
         return {
             data: {}
@@ -22,7 +22,7 @@ export default {
     async asyncData({store, route}) {
         const request = new DAL_Builder()
         const response = await request.setCategory('category')
-                                      .url('roms')
+                                      .url('emulators')
                                       .get()
         const body = response.data 
         const data = body
