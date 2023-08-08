@@ -1,7 +1,7 @@
 <template>
 <div class="loop_games">
     <div class="container">
-        <nuxt-link :to="item.permalink" class="loop_games_item" v-for="(item, index) in value" :key="index">
+        <nuxt-link :to="item.permalink" class="loop_games_item" v-for="(item, index) in currentPosts" :key="index">
             <span class="loop_games_column">
                 <img :src="item.thumbnail" />
             </span>
@@ -28,6 +28,13 @@
             </span>
         </nuxt-link>
     </div>
+    <div class="items-more casino-card__more">
+        <button no-prefetch v-if="value.length > (numberPostOnQuery*postCurrentPage)"
+                class="btn-primary"
+                @click="postShowMore"
+        >Show more
+        </button>
+    </div>
 </div>
 </template>
 
@@ -37,9 +44,20 @@
         props: ['value'],
         data(){
             return {
-
+                numberPostOnQuery: 50,
+                postCurrentPage: 1,
             }
         },
+        computed: {
+            currentPosts() {
+               return this.value.slice(0, this.numberPostOnQuery * this.postCurrentPage)
+            }
+        },
+        methods: {
+            postShowMore(){
+                this.postCurrentPage += 1
+            }
+        }
     }
 </script>
 <style lang="scss" scope>
@@ -51,12 +69,17 @@
 }
 .loop_games_column:nth-child(1) {
     width: 15%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .loop_games_column:nth-child(2) {
     width: 25%;
     padding: 10px;
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 .loop_games_column:nth-child(3), .loop_games_column:nth-child(4), .loop_games_column:nth-child(5) {
     width: 20%;

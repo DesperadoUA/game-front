@@ -1,6 +1,6 @@
 <template>
-    <NuxtLink no-prefetch to="/" class="logo_link">
-        <img class="logo" src="/img/logo.png" alt="Logo" />
+    <NuxtLink no-prefetch to="/" class="logo_link" v-if="options !== null">
+        <img class="logo" :src="options.value" alt="Logo" />
     </NuxtLink>
 </template>
 <script>
@@ -12,11 +12,9 @@
             }
         },
         async mounted() {
-        	/*
           await this.$store.dispatch('options/setOptions')
           const options = this.$store.getters['options/getOptions']
           this.options = options.filter(item => item.key === 'logo')[0]
-          */
         }
     }
 </script>

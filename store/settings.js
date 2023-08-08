@@ -1,4 +1,4 @@
-import DAL_Settings from '../DAL/settings'
+import DAL_Settings from '~/DAL/settings'
 
 export const state = () => ({
     settings: null

@@ -26,31 +26,17 @@
         name: "app-menu",
         data(){
             return {
-                settings: [
-                	{
-                		value_1: '/',
-						value_2: 'HOME',
-                    },
-                    {
-						value_1: '/roms',
-						value_2: 'ROMS',
-                    },
-					{
-						value_1: '/emulators',
-						value_2: 'EMULATORS',
-					}
-                ]
+                settings: []
             }
         },
         async mounted(){
-        	/*
           const data = {lang: 1}
           await this.$store.dispatch('settings/setSettings', data)
           const settings = this.$store.getters['settings/getSettings']
           if(settings.length !== 0) {
              this.settings = settings.filter(item => item.key === 'header_menu' )[0].value
           }
-          */
+          console.log(this.settings)
         },
         methods: {
             menuActivate(){

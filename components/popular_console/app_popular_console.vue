@@ -3,7 +3,7 @@
         <div class="container">
             <div class="popular_console_wrapper_title">
                 <div class="popular_console_ttl">Popular Console</div>
-                <nuxt-link to="/rome" class="popular_console_link">VIEW All</nuxt-link>
+                <nuxt-link to="/roms" class="popular_console_link">VIEW All</nuxt-link>
             </div>
             <div class="populer_console_wrapper">
                 <div class="popular_console_item" v-for="(item, index) in value" :key="index">
@@ -54,6 +54,7 @@
     border-radius: 10px;
     margin: 20px 0px;
     padding: 20px;
+    background: #fff;
 }
 .popular_console_item_img {
     width: 100%;

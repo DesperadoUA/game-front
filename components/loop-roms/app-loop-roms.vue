@@ -51,6 +51,8 @@
 }
 .loop_roms_column:nth-child(1) {
     width: 15%;
+    background: white;
+    text-align: center;
 }
 .loop_roms_column:nth-child(2) {
     width: 25%;

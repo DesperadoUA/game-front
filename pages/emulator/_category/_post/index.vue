@@ -41,31 +41,31 @@ export default {
     components: {app_content, app_category_h1, app_breadcrumds, app_sidebar, app_game_thumbnail, app_recomended_games},
     async asyncData({store, route}) {
         const request = new DAL_Builder()
-        const response = await request.postType('rome')
+        const response = await request.postType('emulator')
                                       .setCategory(route.params.category)
                                       .url(route.params.post)
                                       .get()
         if(response.data.confirm === 'error') {
-                 error({ statusCode: 404, message: 'Post not found' })
-             }
-             else {
-                 const body = response.data.body
-                 const data = {body}
-                 const dataCategory = response.data.category
-                 const popularGames = response.data.popular_games
-                 const relativeGames = response.data.relative_games
-                 data.body.currentUrl = config.BASE_URL + route.path
-                 data.body.breadcrumbs = [
+            error({ statusCode: 404, message: 'Post not found' })
+        }
+        else {
+            const body = response.data.body
+            const data = {body}
+            const dataCategory = response.data.category
+            const popularGames = response.data.popular_games
+            const relativeGames = response.data.relative_games
+            data.body.currentUrl = config.BASE_URL + route.path
+            data.body.breadcrumbs = [
                    {
                      path: '/',
                      title: 'Home'
                    },
                    {
-                     path: '/roms',
-                     title: 'Roms'
+                     path: '/emulators',
+                     title: 'Emulators'
                    },
                    {
-                     path: `/roms/${dataCategory.permalink}`,
+                     path: `/emulators/${dataCategory.permalink}`,
                      title: dataCategory.title
                    },
                    {
@@ -73,23 +73,24 @@ export default {
                      title: data.body.title
                    }
                  ]
-                 data.body.sidebarMenu = popularGames
-                 data.body. characters = {
-                   fullName: data.body.title,
-                   fullSize: '4.9MB',
-                   region: data.body.icon,
-                   console: dataCategory.title,
-                   genre: data.body.genre,
-                   downloads: '16,167,161',
-                   rating: data.body.rating
-                },
-                data.body.linkDownload = '/link-download'
-                data.body.posts = relativeGames;
-                return {data}
+            data.body.sidebarMenu = popularGames
+            data.body. characters = {
+                fullName: data.body.title,
+                fullSize: '4.9MB',
+                region: data.body.icon,
+                console: dataCategory.title,
+                genre: data.body.genre,
+                downloads: '16,167,161',
+                rating: data.body.rating
+            },
+            data.body.linkDownload = '/link-download'
+            data.body.posts = relativeGames;
+            return {data}
         }
     },
     head() {
         return {
+            /*
             title: this.data.body.meta_title,
             meta: [
                 {
@@ -101,6 +102,7 @@ export default {
             link: [
                 { rel: 'canonical', href: this.data.body.currentUrl}
             ]
+            */
         }
     }
 }

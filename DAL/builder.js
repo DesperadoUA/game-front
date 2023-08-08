@@ -4,7 +4,7 @@ import config from './config'
 export default class JsonRequest {
     #options = {
         URL_API: config.API_URL,
-        POST_TYPE: 'rome',
+        POST_TYPE: '',
         CATEGORY: '',
         URL: '',
         IS_SEARCH: false,
@@ -42,7 +42,7 @@ export default class JsonRequest {
         else if(this.#options.POST_TYPE === 'pages') {
             return axios.get(this.#options.URL_API + this.#options.POST_TYPE+'/' + this.#options.URL)
         }
-        else if(this.#options.CATEGORY !== '') {
+        else if(this.#options.CATEGORY !== '' && this.#options.POST_TYPE === '') {
             return axios.get(this.#options.URL_API + this.#options.CATEGORY+'/' + this.#options.URL)
         }
         else {
